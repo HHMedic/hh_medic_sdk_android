@@ -1,0 +1,76 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.HHMedic'
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs project(':HHmedicSdk').file('libs')
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    api 'com.github.bumptech.glide:glide:4.12.0'
+
+    api 'org.jetbrains:annotations:15.0'
+
+    api 'com.google.code.gson:gson:2.8.0'
+
+    api 'com.orhanobut:logger:2.2.0'
+
+    api 'it.sephiroth.android.library.imagezoom:library:1.0.4'
+
+    api "com.tencent.imsdk:imsdk-plus:7.4.4661"
+
+    api "com.tencent.liteav:LiteAVSDK_TRTC:11.5.0.13312"
+    api 'com.squareup.okhttp3:okhttp:3.12.1'
+
+//    implementation 'com.github.AsherLzc:HHGithubSdk:3.6.8.1'
+
+//    implementation files('libs/fastjson-1.2.60.jar')
+
+//    implementation(name: 'alipaySdk-15.6.5-20190718211159-noUtdid', ext: 'aar')
+
+    api 'com.github.HHMedic:hh_sec:4.1.3.1'
+    api 'com.github.HHMedic:hhmedic-base:1.2.0'
+    api 'com.github.HHMedic:hh_video:2.5.4.11'
+    api 'com.github.HHMedic:hh_uikit:1.1.0'
+    api 'com.github.HHMedic:hh_trtc:3.6.8'
+    api 'com.github.HHMedic:hh_okhttputils:1.0.0'
+    api 'com.github.HHMedic:hh_matisse:2.1.0'
+}

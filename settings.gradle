@@ -1,0 +1,3 @@
+rootProject.name = "hh_medic_sdk_android"
+include ':app'
+include ':HHmedicSdk'
